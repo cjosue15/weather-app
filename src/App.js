@@ -7,10 +7,10 @@ function App() {
     const [city, setCity] = useState('');
 
     return (
-        <>
+        <div id='main'>
             <SearchCity setCity={setCity} />
             <WeatherSide city={city} />
-        </>
+        </div>
     );
 }
 

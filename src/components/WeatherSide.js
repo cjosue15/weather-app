@@ -94,58 +94,56 @@ const WeatherSide = ({ city }) => {
                 </div>
             )}
             {main && (
-                <div className='container'>
-                    <div className='weather-content'>
-                        <div className='weather-side' style={{ backgroundImage: `url("${data.img}")` }}>
-                            <div className='weather-gradient'></div>
-                            <div className='date-container'>
-                                <h2 className='date-dayname'>{`${dayjs().format('dddd')}`}</h2>
-                                <span className='date-day'>{`${dayjs().format('D MMMM YYYY')}`}</span>
-                                <i className='location-icon' data-feather='map-pin'></i>
-                                <span className='location'>{`${name}, ${sys.country}`}</span>
-                            </div>
-                            <div className='weather-container'>
-                                <img className='weather-icon' src={`http://openweathermap.org/img/w/${weather[0].icon}.png`} alt={weather[0].icon} />
-                                <h1 className='weather-temp'>{Math.round(main.temp)}°C</h1>
-                                <h3 className='weather-desc'>{weather[0].main}</h3>
-                            </div>
+                <div className='weather-content'>
+                    <div className='weather-side' style={{ backgroundImage: `url("${data.img}")` }}>
+                        <div className='weather-gradient'></div>
+                        <div className='date-container'>
+                            <h2 className='date-dayname'>{`${dayjs().format('dddd')}`}</h2>
+                            <span className='date-day'>{`${dayjs().format('D MMMM YYYY')}`}</span>
+                            <i className='location-icon' data-feather='map-pin'></i>
+                            <span className='location'>{`${name}, ${sys.country}`}</span>
                         </div>
-                        <div className='info-side'>
-                            <div className='today-info-container'>
-                                <div className='today-info'>
-                                    <div className='precipitation'>
-                                        <span className='title'>TEMP MAX</span>
-                                        <span className='value'>{Math.round(main.temp_max)} %</span>
-                                    </div>
-                                    <div className='precipitation'>
-                                        <span className='title'>TEMP MIN</span>
-                                        <span className='value'>{Math.round(main.temp_min)} %</span>
-                                    </div>
-                                    <div className='precipitation'>
-                                        <span className='title'>SENSATION</span>
-                                        <span className='value'>{Math.round(main.feels_like)} %</span>
-                                    </div>
-                                    <div className='humidity'>
-                                        <span className='title'>HUMIDITY</span>
-                                        <span className='value'>{main.humidity} %</span>
-                                    </div>
-                                    <div className='wind'>
-                                        <span className='title'>WIND</span>
-                                        <span className='value'>{wind.speed} km/h</span>
-                                    </div>
+                        <div className='weather-container'>
+                            <img className='weather-icon' src={`http://openweathermap.org/img/w/${weather[0].icon}.png`} alt={weather[0].icon} />
+                            <h1 className='weather-temp'>{Math.round(main.temp)}°C</h1>
+                            <h3 className='weather-desc'>{weather[0].main}</h3>
+                        </div>
+                    </div>
+                    <div className='info-side'>
+                        <div className='today-info-container'>
+                            <div className='today-info'>
+                                <div className='precipitation'>
+                                    <span className='title'>TEMP MAX</span>
+                                    <span className='value'>{Math.round(main.temp_max)} %</span>
+                                </div>
+                                <div className='precipitation'>
+                                    <span className='title'>TEMP MIN</span>
+                                    <span className='value'>{Math.round(main.temp_min)} %</span>
+                                </div>
+                                <div className='precipitation'>
+                                    <span className='title'>SENSATION</span>
+                                    <span className='value'>{Math.round(main.feels_like)} %</span>
+                                </div>
+                                <div className='humidity'>
+                                    <span className='title'>HUMIDITY</span>
+                                    <span className='value'>{main.humidity} %</span>
+                                </div>
+                                <div className='wind'>
+                                    <span className='title'>WIND</span>
+                                    <span className='value'>{wind.speed} km/h</span>
                                 </div>
                             </div>
-                            <div className='week-container'>
-                                <ul className='week-list'>
-                                    {data.predictions.map(({ id, temp, main, icon, day }) => (
-                                        <li key={id}>
-                                            <img className='day-icon' src={`http://openweathermap.org/img/w/${icon}.png`} alt={main} />
-                                            <span className='day-name'>{day}</span>
-                                            <span className='day-temp'>{temp}°C</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                        </div>
+                        <div className='week-container'>
+                            <ul className='week-list'>
+                                {data.predictions.map(({ id, temp, main, icon, day }) => (
+                                    <li key={id}>
+                                        <img className='day-icon' src={`http://openweathermap.org/img/w/${icon}.png`} alt={main} />
+                                        <span className='day-name'>{day}</span>
+                                        <span className='day-temp'>{temp}°C</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
                 </div>
