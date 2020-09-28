@@ -26,7 +26,7 @@ const WeatherSide = ({ city }) => {
                     error: false,
                 });
 
-                const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=024d45d23e83c80330a78d19d8d88448`);
+                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&lang=es&appid=024d45d23e83c80330a78d19d8d88448`);
                 const data = await response.json();
                 const response2 = await fetch(
                     `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord?.lat}&lon=${data.coord?.lon}&exclude=minutely,hourly&units=metric&appid=024d45d23e83c80330a78d19d8d88448`
@@ -104,7 +104,7 @@ const WeatherSide = ({ city }) => {
                             <span className='location'>{`${name}, ${sys.country}`}</span>
                         </div>
                         <div className='weather-container'>
-                            <img className='weather-icon' src={`http://openweathermap.org/img/w/${weather[0].icon}.png`} alt={weather[0].icon} />
+                            <img className='weather-icon' src={`https://openweathermap.org/img/w/${weather[0].icon}.png`} alt={weather[0].icon} />
                             <h1 className='weather-temp'>{Math.round(main.temp)}°C</h1>
                             <h3 className='weather-desc'>{weather[0].main}</h3>
                         </div>
@@ -138,7 +138,7 @@ const WeatherSide = ({ city }) => {
                             <ul className='week-list'>
                                 {data.predictions.map(({ id, temp, main, icon, day }) => (
                                     <li key={id}>
-                                        <img className='day-icon' src={`http://openweathermap.org/img/w/${icon}.png`} alt={main} />
+                                        <img className='day-icon' src={`https://openweathermap.org/img/w/${icon}.png`} alt={main} />
                                         <span className='day-name'>{day}</span>
                                         <span className='day-temp'>{temp}°C</span>
                                     </li>
